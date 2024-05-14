@@ -2,7 +2,8 @@ html,
 body {
   margin: 0;
   font-family: "Karla", sans-serif;
-  background-color: thistle;
+  background-color: #c89963;
+  color: #46291b;
 }
 
 /*typography*/
@@ -34,7 +35,7 @@ h3 {
 /* layout */
 
 header {
-  background-color: #67595e;
+  background-color: #9b4f1c;
 }
 
 .header-inner {
@@ -72,9 +73,9 @@ header {
   border-bottom: 1px solid #bcbcbc;
   padding: 4px 8px;
 }
-.radio:hover {
+/* .radio:hover {
   scale: 1.1;
-}
+} */
 
 .radio:first-child {
   border-top-left-radius: 5px;
@@ -118,8 +119,8 @@ input[type="radio"] {
 }
 
 .get-image-btn {
-  background-color: #67595e;
-  color: #eed6d3;
+  background-color: #46291b;
+  color: #cab09a;
   padding: 15px 19px;
   font-size: 24px;
   border: none;
@@ -127,8 +128,9 @@ input[type="radio"] {
   margin-bottom: 8px;
 }
 .get-image-btn:hover {
-  background-color: #aa98a9;
-  color: #351f19;
+  cursor: pointer;
+  background-color: #efd5bc;
+  color: #46291b;
 }
 /* modal */
 
@@ -145,7 +147,7 @@ input[type="radio"] {
   border-radius: 5px;
   width: 420px;
   height: 490px;
-  background-color: #fff0ee;
+  background-color: #efd5bc;
 }
 
 .cat-img {

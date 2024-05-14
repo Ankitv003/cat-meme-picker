@@ -7,9 +7,20 @@ const memeModalInner = document.getElementById("meme-modal-inner");
 const memeModal = document.getElementById("meme-modal");
 const memeModalCloseBtn = document.getElementById("meme-modal-close-btn");
 
+document.addEventListener("click", function (e) {
+  const isClickInsideModal = memeModal.contains(e.target);
+  if (!isClickInsideModal && memeModal.style.display === "flex") {
+    closeModal();
+    resetControls();
+  }
+});
+
 emotionRadios.addEventListener("change", highlightCheckedOption);
 
-memeModalCloseBtn.addEventListener("click", closeModal);
+memeModalCloseBtn.addEventListener("click", function () {
+  closeModal();
+  resetControls();
+});
 
 getImageBtn.addEventListener("click", renderCat);
 
@@ -25,7 +36,26 @@ function closeModal() {
   memeModal.style.display = "none";
 }
 
-function renderCat() {
+function resetControls() {
+  gifsOnlyOption.checked = false;
+  const radioButtons = document.querySelectorAll("input[type='radio']");
+  radioButtons.forEach((radio) => {
+    radio.checked = false;
+  });
+  const radios = document.getElementsByClassName("radio");
+  for (let radio of radios) {
+    radio.classList.remove("highlight");
+  }
+}
+
+function renderCat(e) {
+  e.stopPropagation();
+  if (
+    gifsOnlyOption.checked &&
+    !document.querySelector('input[type="radio"]:checked')
+  ) {
+    alert("Choose an Emotion!");
+  }
   const catObject = getSingleCatObject();
   memeModalInner.innerHTML = `
         <img 
